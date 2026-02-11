@@ -1,0 +1,17 @@
+GET http://localhost:9000/api/produits
+Content-Type: application/json
+
+###
+POST http://localhost:9000/api/produits
+Content-Type: application/json
+
+{
+    "nom": "Avocat",
+    "description": "Avocat vert et mur",
+    "prix": 20.99,
+    "quantite": 2
+}
+
+###
+GET http://localhost:9000/api/produits/2
+Content-Type: application/json
