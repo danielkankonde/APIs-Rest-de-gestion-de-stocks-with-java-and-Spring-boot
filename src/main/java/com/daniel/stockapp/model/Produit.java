@@ -1,6 +1,9 @@
 package com.daniel.stockapp.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Produit {
@@ -9,12 +12,16 @@ public class Produit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Le nom est obligatoire")
     private String nom;
 
+    @Min(value = 0, message = "Le prix doit être positif")
     private double prix;
 
+    @NotNull(message = "La description est obligatoire")
     private String description;
 
+    @Min(value = 0, message = "La quantité doit être positive")
     private int quantite;
 
     // Constructeurs

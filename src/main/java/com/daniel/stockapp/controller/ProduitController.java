@@ -2,6 +2,11 @@ package com.daniel.stockapp.controller;
 
 import com.daniel.stockapp.model.Produit;
 import com.daniel.stockapp.service.ProduitService;
+
+import jakarta.validation.Valid;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,26 +24,36 @@ public class ProduitController {
 
     // Create product
     @PostMapping
-    public Produit creerProduit(@RequestBody Produit produit) {
-        return produitService.creerProduit(produit);
+    public ResponseEntity<Produit> creerProduit(@Valid @RequestBody Produit produit) {
+        Produit produitCreated = produitService.creerProduit(produit);
+        return new ResponseEntity<>(produitCreated, HttpStatus.CREATED);
     }
 
     // Get all products
     @GetMapping
-    public List<Produit> getAllProduits() {
-        return produitService.getAllProduits();
+    public ResponseEntity<List<Produit>> getAllProduits() {
+        return new ResponseEntity<>(produitService.getAllProduits(), HttpStatus.OK);
     }
 
     // Détail of product
     @GetMapping("/{id}")
-    public Produit getProduitById(@PathVariable Long id) {
+    public ResponseEntity<Produit> getProduitById(@PathVariable Long id) {
         return produitService.getProduitById(id)
-                .orElseThrow(() -> new RuntimeException("Produit non trouvé"));
+                .map(produit -> new ResponseEntity<>(produit, HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     // Delete a product
     @DeleteMapping("/{id}")
-    public void supprimerProduit(@PathVariable Long id) {
+    public ResponseEntity<Void> supprimerProduit(@PathVariable Long id) {
         produitService.supprimerProduit(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    // Update a product
+    @PutMapping("/{id}")
+    public ResponseEntity<Produit> updateProduit(@PathVariable Long id, @RequestBody Produit produit) {
+        Produit updatedProduit = produitService.updateProduit(id, produit);
+        return new ResponseEntity<>(updatedProduit, HttpStatus.OK);
     }
 }

@@ -15,3 +15,7 @@ Content-Type: application/json
 ###
 GET http://localhost:9000/api/produits/2
 Content-Type: application/json
+
+###
+DELETE http://localhost:9000/api/produits/1
+Content-Type: application/json

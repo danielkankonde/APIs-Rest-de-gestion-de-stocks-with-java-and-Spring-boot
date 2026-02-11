@@ -35,4 +35,15 @@ public class ProduitService {
     public void supprimerProduit(Long id) {
         produitRepository.deleteById(id);
     }
+
+    // Modifier un produit
+    public Produit updateProduit(Long id, Produit nouveauProduit) {
+    return produitRepository.findById(id).map(produit -> {
+        produit.setNom(nouveauProduit.getNom());
+        produit.setPrix(nouveauProduit.getPrix());
+        produit.setQuantite(nouveauProduit.getQuantite());
+        return produitRepository.save(produit);
+    }).orElseThrow(() -> new RuntimeException("Produit non trouvé"));
+}
+
 }
