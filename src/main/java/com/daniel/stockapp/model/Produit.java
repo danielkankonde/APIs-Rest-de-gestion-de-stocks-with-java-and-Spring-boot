@@ -1,5 +1,7 @@
 package com.daniel.stockapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -27,9 +29,8 @@ public class Produit {
     // 
     @ManyToOne
     @JoinColumn(name = "categorie_id")
+    @JsonIgnoreProperties("produits") // Pour éviter les problèmes de sérialisation
     private Categorie categorie;
-
-
 
     // Constructeurs
     public Produit() {}
@@ -85,5 +86,7 @@ public class Produit {
     public void setCategorie(Categorie categorie) {
         this.categorie = categorie;
     }
+
+    
 
 }
