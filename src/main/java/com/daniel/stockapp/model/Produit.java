@@ -24,6 +24,13 @@ public class Produit {
     @Min(value = 0, message = "La quantité doit être positive")
     private int quantite;
 
+    // 
+    @ManyToOne
+    @JoinColumn(name = "categorie_id")
+    private Categorie categorie;
+
+
+
     // Constructeurs
     public Produit() {}
 
@@ -70,4 +77,13 @@ public class Produit {
     public void setQuantite(int quantite) {
         this.quantite = quantite;
     }
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
+
 }
