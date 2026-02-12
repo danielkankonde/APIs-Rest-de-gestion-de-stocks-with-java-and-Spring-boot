@@ -6,12 +6,12 @@ POST http://localhost:9000/api/produits
 Content-Type: application/json
 
 {
-    "nom": "Laptop",
-    "prix": 12.00,
-    "description" : "Ordinateur portable",
+    "nom": "Feuille de magnoc",
+    "prix": 20.00,
+    "description" : "Aliment riche en fibres et en vitamines, idéale pour les plats d'hiver.",
     "quantite": 5,
     "categorie": {
-        "id": 1
+        "id": 2
     }
 }
 
@@ -24,10 +24,22 @@ Content-Type: application/json
 DELETE http://localhost:9000/api/produits/1
 Content-Type: application/json
 
+
+
+
+
+###
+GET http://localhost:9000/api/categories
+Content-Type: application/json
+
 ###
 POST http://localhost:9000/api/categories
 Content-Type: application/json
 
 {
-    "nom": "Informatique"
+    "nom": "Alimentaire"
 }
+
+###
+GET http://localhost:9000/api/produits/categorie/2
+Content-Type: application/json

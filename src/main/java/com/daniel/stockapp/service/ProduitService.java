@@ -44,6 +44,12 @@ public class ProduitService {
         produit.setQuantite(nouveauProduit.getQuantite());
         return produitRepository.save(produit);
     }).orElseThrow(() -> new RuntimeException("Produit non trouvé"));
-}
+    }
+
+    // Recherche les produits par categorie
+    public List<Produit> getProduitsByCategorie(Long categorieId) {
+        return produitRepository.findByCategorieId(categorieId);
+    }
+
 
 }

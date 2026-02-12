@@ -56,4 +56,11 @@ public class ProduitController {
         Produit updatedProduit = produitService.updateProduit(id, produit);
         return new ResponseEntity<>(updatedProduit, HttpStatus.OK);
     }
+
+    // Get products by category
+    @GetMapping("/categorie/{id}")
+    public ResponseEntity<List<Produit>> getProduitsByCategorie(@PathVariable Long id) {
+        return ResponseEntity.ok(produitService.getProduitsByCategorie(id));
+    }
+
 }
