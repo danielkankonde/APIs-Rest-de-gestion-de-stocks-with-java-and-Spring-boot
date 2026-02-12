@@ -6,11 +6,15 @@ POST http://localhost:9000/api/produits
 Content-Type: application/json
 
 {
-    "nom": "",
-    "description": "Avocat vert et mur",
-    "prix": 20.99,
-    "quantite": 2
+    "nom": "Laptop",
+    "prix": 12.00,
+    "description" : "Ordinateur portable",
+    "quantite": 5,
+    "categorie": {
+        "id": 1
+    }
 }
+
 
 ###
 GET http://localhost:9000/api/produits/2
@@ -19,3 +23,11 @@ Content-Type: application/json
 ###
 DELETE http://localhost:9000/api/produits/1
 Content-Type: application/json
+
+###
+POST http://localhost:9000/api/categories
+Content-Type: application/json
+
+{
+    "nom": "Informatique"
+}

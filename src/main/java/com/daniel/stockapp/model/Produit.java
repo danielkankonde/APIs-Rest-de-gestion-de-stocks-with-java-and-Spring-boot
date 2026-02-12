@@ -26,7 +26,7 @@ public class Produit {
     @Min(value = 0, message = "La quantité doit être positive")
     private int quantite;
 
-    // 
+    // Ajout de la relation dans la table Categorie
     @ManyToOne
     @JoinColumn(name = "categorie_id")
     @JsonIgnoreProperties("produits") // Pour éviter les problèmes de sérialisation
@@ -86,7 +86,5 @@ public class Produit {
     public void setCategorie(Categorie categorie) {
         this.categorie = categorie;
     }
-
-    
 
 }
