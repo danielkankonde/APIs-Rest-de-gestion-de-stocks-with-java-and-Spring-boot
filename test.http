@@ -56,3 +56,9 @@ Content-Type: application/json
 ###
 GET http://localhost:9000/api/produits/pagines?page=0&size=5
 Content-Type: application/json
+
+
+// Requête pour récupérer les produits paginés triés par prix décroissant
+###
+GET http://localhost:9000/api/produits/pagines?page=0&size=5&sort=prix,desc
+Content-Type: application/json
