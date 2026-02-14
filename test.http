@@ -1,12 +1,14 @@
 GET http://localhost:9000/api/produits
 Content-Type: application/json
 
+
+// Requête pour créer un nouveau produit
 ###
 POST http://localhost:9000/api/produits
 Content-Type: application/json
 
 {
-    "nom": "Feuille de magnoc",
+    "nom": "Feuille de patate",
     "prix": 20.00,
     "description" : "Aliment riche en fibres et en vitamines, idéale pour les plats d'hiver.",
     "quantite": 5,
@@ -16,22 +18,26 @@ Content-Type: application/json
 }
 
 
+// Requête pour récupérer un produit spécifique
 ###
 GET http://localhost:9000/api/produits/2
 Content-Type: application/json
 
+
+// Requête pour Supprimer un produit
 ###
 DELETE http://localhost:9000/api/produits/1
 Content-Type: application/json
 
 
 
-
-
+// Requête pour récupérer toutes les catégories
 ###
 GET http://localhost:9000/api/categories
 Content-Type: application/json
 
+
+// Requête pour créer une nouvelle catégorie
 ###
 POST http://localhost:9000/api/categories
 Content-Type: application/json
@@ -40,6 +46,8 @@ Content-Type: application/json
     "nom": "Alimentaire"
 }
 
+
+// Requête pour récupérer les produits d'une catégorie spécifique
 ###
 GET http://localhost:9000/api/produits/categorie/2
 Content-Type: application/json
