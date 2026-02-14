@@ -51,3 +51,8 @@ Content-Type: application/json
 ###
 GET http://localhost:9000/api/produits/categorie/2
 Content-Type: application/json
+
+// Requête pour récupérer les produits paginés
+###
+GET http://localhost:9000/api/produits/pagines?page=0&size=5
+Content-Type: application/json
