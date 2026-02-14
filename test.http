@@ -17,17 +17,17 @@ Content-Type: application/json
     }
 }
 
-
 // Requête pour récupérer un produit spécifique
 ###
 GET http://localhost:9000/api/produits/2
 Content-Type: application/json
 
-
 // Requête pour Supprimer un produit
 ###
 DELETE http://localhost:9000/api/produits/1
 Content-Type: application/json
+
+
 
 
 
@@ -57,8 +57,35 @@ Content-Type: application/json
 GET http://localhost:9000/api/produits/pagines?page=0&size=5
 Content-Type: application/json
 
-
 // Requête pour récupérer les produits paginés triés par prix décroissant
 ###
 GET http://localhost:9000/api/produits/pagines?page=0&size=5&sort=prix,desc
+Content-Type: application/json
+
+
+
+###
+// Requête pour créer un nouveau client
+POST  http://localhost:9000/api/clients
+Content-Type: application/json
+
+{
+    "nom": "JFJ",
+    "email": "Maguykalanga123@gmail.com",
+    "telephone": "0810556860"
+}
+
+###
+// Requête pour récupérer tous les clients
+GET http://localhost:9000/api/clients
+Content-Type: application/json
+
+###
+// Requête pour récupérer un client spécifique
+GET http://localhost:9000/api/clients/3
+Content-Type: application/json
+
+###
+// Requête pour supprimer un client
+DELETE http://localhost:9000/api/clients/3
 Content-Type: application/json
