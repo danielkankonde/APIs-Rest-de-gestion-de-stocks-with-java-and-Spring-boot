@@ -82,10 +82,25 @@ Content-Type: application/json
 
 ###
 // Requête pour récupérer un client spécifique
-GET http://localhost:9000/api/clients/3
+GET http://localhost:9000/api/clients/1
 Content-Type: application/json
 
 ###
 // Requête pour supprimer un client
 DELETE http://localhost:9000/api/clients/3
 Content-Type: application/json
+
+###
+POST http://localhost:9000/api/factures
+Content-Type: application/json
+
+{
+  "clientId": 1,
+  "lignes": [
+    {
+      "produitId": 2,
+      "quantite": 1
+    }
+  ]
+}
+
